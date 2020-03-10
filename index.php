@@ -22,7 +22,7 @@ class Department{
 	}
 
 	public function getDepartmentName(){
-		
+		return $this->name;
 	}
 }
 
@@ -55,6 +55,14 @@ $company = new company();
 $company->setCompanyName("Harum Corporation");
 $companyName = $company->getCompanyName();
 
+$department = new Department();
+$department->setDepartmentName("marketing department");
+$departmentName = $department->getDepartmentName();
+
+
 echo $companyName;
+echo "<br>";
+echo $departmentName;
+
 
  ?>
