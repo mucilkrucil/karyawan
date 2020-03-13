@@ -3,6 +3,8 @@
 class company{
 		private $name;
 
+
+
 		public function setCompanyName($name){
 			$this->name = $name;
 		}
@@ -22,6 +24,7 @@ class Department{
 	}
 
 	public function getDepartmentName(){
+
 		return $this->name;
 	}
 }
@@ -30,7 +33,7 @@ class Department{
 class Employee{
 	private $name;
 	private $title = "S.Kom";
-	private $salary;
+	private $salary = "2";
 
 
 	public function setEmployeename($name){
@@ -47,28 +50,36 @@ class Employee{
 
 	}
 
-	public function getEmployeeProfile(){
-		return "work as a marketing staff";
+	public function getMonthlysalary(){
+		return "2000k";
+	}
 
+	public function getEmployeeProfile(){
+		$company = new company();
+		$company->setCompanyName("Harum Corporation");
+		$companyName = $company->getCompanyName();
+
+		$department = new Department();
+		$department->setDepartmentName("marketing department");
+		$departmentName = $department->getDepartmentName();
+
+		$employee = new Employee();
+		$employee->setEmployeename("Dana Putri Harum");
+		$employeesName = $employee->getEmployeename();
+		$employeesTitle = $employee->getEmployeeTitle();
+		$employeesSalary = $employee->getMonthlysalary();
+
+		 $this->profil = "nama : ".$employeesName.",".$employeesTitle."<br>"."Gaji Bulanan : ".$employeesSalary."<br>"."Nama Perusahaan :".$companyName."<br>"."Divisi / Departemen : ".$departmentName;
+
+		return $this->profil;
 	}
 
 }
 
-$company = new company();
-$company->setCompanyName("Harum Corporation");
-$companyName = $company->getCompanyName();
-
-$department = new Department();
-$department->setDepartmentName("marketing department");
-$departmentName = $department->getDepartmentName();
-
 $employee = new Employee();
-$employee->setEmployeename("Dana Putri Harum");
-$employeeName = $employee->getEmployeename();
-$employeeTitle = $employee->getEmployeeTitle();
 $employeeProfile = $employee->getEmployeeProfile();
 
-echo $companyName."<br>".$departmentName."<br>".$employeeName."<br>".$employeeTitle."<br>".$employeeProfile;
+echo "Profil Pegawai : "."<br>".$employeeProfile;
 
 
  ?>
